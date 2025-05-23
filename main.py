@@ -1,36 +1,32 @@
 import streamlit as st
 
 # 페이지 설정
-st.set_page_config(page_title="나의 소개 페이지", page_icon="📘", layout="centered")
+st.set_page_config(page_title="김재경 소개 페이지", page_icon="🧑", layout="centered")
 
 # 제목
-st.title("👋 안녕하세요! 반갑습니다.")
+st.title("👋 안녕하세요! 저는 김재경입니다.")
 
-# 사이드바 - 사진 업로드
-st.sidebar.header("📷 프로필 사진 업로드")
-uploaded_file = st.sidebar.file_uploader("이미지를 업로드하세요 (jpg, png)", type=["jpg", "png"])
-if uploaded_file:
-    st.sidebar.image(uploaded_file, width=200, caption="나의 사진")
+# 프로필 사진
+st.image("profile.jpg", width=200, caption="김재경", use_column_width=False)
 
-# 소개 섹션
-st.header("🙋 나에 대해 소개합니다")
+# 소개 정보
+st.header("📌 기본 정보")
 
-name = st.text_input("이름을 입력하세요", placeholder="예: 홍길동")
-school = st.text_input("학교를 입력하세요", placeholder="예: OO대학교")
-hobby = st.text_area("취미를 입력하세요", placeholder="예: 독서, 여행, 코딩")
-email = st.text_input("이메일을 입력하세요", placeholder="예: example@email.com")
+st.markdown("""
+- **이름**: 김재경  
+- **학교**: 영동일고등학교  
+- **취미**: 힙합  
+- **이메일**: [23s003@ydi.hs.kr](mailto:23s003@ydi.hs.kr)
+""")
 
-if st.button("프로필 저장하기"):
-    if name and school and email:
-        st.success("✅ 프로필이 저장되었습니다!")
-        st.write(f"### 📝 내 소개")
-        st.write(f"- **이름**: {name}")
-        st.write(f"- **학교**: {school}")
-        st.write(f"- **취미**: {hobby if hobby else '취미 정보 없음'}")
-        st.write(f"- **이메일**: {email}")
-    else:
-        st.warning("⚠️ 이름, 학교, 이메일은 필수 입력 항목입니다.")
+# 추가 설명이나 인삿말
+st.markdown("---")
+st.subheader("🙌 한 마디")
+st.markdown("""
+힙합을 사랑하는 고등학생 김재경입니다!  
+이 소개 페이지를 통해 저를 알아가 주세요. 감사합니다!
+""")
 
-# 하단 정보
+# 푸터
 st.markdown("---")
 st.markdown("Made with ❤️ by Streamlit")
